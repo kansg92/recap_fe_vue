@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-white">
-    <nav class="flex items-center justify-between py-6 lg:px-4" aria-label="Global">
+  <header class="bg-white border-b">
+    <nav class="flex items-center justify-between py-4 lg:px-4 sm:px-2" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="/" class="-m-1.5 p-1.5">
           <span class="flex items-center"> <img class="h-8 w-auto" src="@/assets/red_bottle_cap_aih.png" alt="" /> <span>Re;Cap </span></span>
@@ -25,7 +25,7 @@
         <div class="flex items-center justify-between">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            <img class="h-8 w-auto" src="@/assets/red_bottle_cap_aih.png" alt="" />
           </a>
           <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
             <span class="sr-only">Close menu</span>
@@ -35,16 +35,16 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a
+              <router-link
                 v-for="item in navigation"
                 :key="item.name"
-                :href="item.href"
+                :to="item.href"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >{{ item.name }}</a
+                >{{ item.name }}</router-link
               >
             </div>
             <div class="py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+              <a href="/login" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 const navigation = [
   { name: "소개", href: "/about" },
   { name: "데일리리포트", href: "/dailyreport" },
-  { name: "가계부", href: "#" },
+  { name: "가계부", href: "/accountbook" },
   { name: "습관카드", href: "#" },
 ];
 

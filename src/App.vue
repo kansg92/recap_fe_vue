@@ -1,15 +1,15 @@
 <template>
-  <div class="w-full h-full ">
-    <div>
+  <div class="w-full h-full">
+    <header>
       <HeaderMain v-show="!sidebarOpen" />
+    </header>
+    <div class="py-2 min-h-screen">
       <SideBar v-show="sidebarOpen" />
-    </div>
-    <div class="py-4 px-6 ">
       <RouterView />
     </div>
-    <footer class="relative mt-10">
-      <FooterBar class="absolute bottom-0 w-full" />
-    </footer>
+    <footer class="">
+      <FooterBar class="relative bottom-0" />
+    </footer >
   </div>
 </template>
 
@@ -23,4 +23,8 @@ import { module } from "@/stores/ui";
 const store = module();
 
 const sidebarOpen = computed(() => store.sidebarOpen); // side bar show
+
+
+
+
 </script>
