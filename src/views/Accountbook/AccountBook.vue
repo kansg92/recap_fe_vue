@@ -1,6 +1,20 @@
 <template>
   <main class="lg:pl-52">
-    <div class="px-4 sm:px-6 lg:px-8">AccountBook</div>
+    <div class="px-4 sm:px-6 lg:px-8">
+      <h1>AccountBook</h1>
+      <div>
+        <h2> 내 가계부 리스트 </h2>
+        새가계부 추가하기~
+
+        table...
+
+      </div>
+
+
+    </div>
+
+
+
   </main>
 </template>
 
