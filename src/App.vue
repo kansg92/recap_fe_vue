@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full">
     <header>
-      <HeaderMain v-show="!sidebarOpen" />
+      <HeaderMain v-show="showTopbar" />
     </header>
     <div class="py-2 min-h-screen">
       <SideBar v-show="sidebarOpen" />
@@ -23,7 +23,7 @@ import { module } from "@/stores/ui";
 const store = module();
 
 const sidebarOpen = computed(() => store.sidebarOpen); // side bar show
-
+const showTopbar = computed(() => store.showTopbar)
 
 
 

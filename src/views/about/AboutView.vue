@@ -10,7 +10,8 @@ import { onMounted } from "vue";
 const store = module();
 
 onMounted(() => {
-  store.setOpen(false);
+  store.setSide(false);
+  store.setTop(true);
 });
 
 
