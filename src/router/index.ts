@@ -12,27 +12,30 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('@/views/about/AboutView.vue')
     },
     {
       path: '/dailyreport',
       name: 'dailyreport',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('@/views/daily_report/DailyReportView.vue')
     },
     {
       path: '/accountbook',
       name: 'accountbook',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('@/views/accountbook/AccountBook.vue')
-    }
+      component: () => import('@/views/accountBook/AccountBook.vue')
+    },
+
+//  ******************************* ErroPage *****************************************
+    {
+      path: '/404',
+      name : "notFound",
+      component: () => import('@/views/error/NotFound.vue')
+    },
+
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: "/404"
+    },
   ]
 })
 
