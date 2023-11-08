@@ -5,14 +5,26 @@
 </template>
 
 <script setup lang="ts">
-import { module } from "@/stores/ui";
+import { module,sidebarContents } from "@/stores/ui";
 import { onMounted } from "vue";
+
 const store = module();
+const side = sidebarContents();
+
+const content = [
+  {name: "Heroicons", href: "/", icon: "H" },
+  {name: "Tailwind Labs", href: "/", icon: "T" },
+  {name: "Workcation", href: "/", icon: "W" },
+];
 
 onMounted(() => {
   store.setSide(true);
   store.setTop(false);
+  side.setContents(content)
 });
+
+
+
 </script>
 
 <style></style>

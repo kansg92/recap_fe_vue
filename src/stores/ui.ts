@@ -28,3 +28,20 @@ export const module = defineStore("used", () => {
 
   return { sidebarOpen, showTopbar,setSide,setTop };
 });
+
+
+export const sidebarContents = defineStore("sidebar", ()=>{
+
+  type Contents = {
+    name : string,
+    href : string,
+    icon : string
+  }
+  const sideContent = ref<Contents[]>()
+
+  const setContents = (content:Contents[]) =>{
+    sideContent.value = content
+  }
+
+  return {sideContent, setContents};
+});
