@@ -2,7 +2,7 @@
   <div class="lg:pl-56 h-screen">
     <div class="h-full">
       <div class="flex items-center h-12 border-b ">
-        <span class="lg:pl-4 pl-2">아마도 제목</span>
+        <span class="lg:pl-4 pl-2">{{ subName.getName }}</span>
       </div>
       <div class="float-right">
         <!-- <ListBox :selectOption="selectOption"></ListBox> -->
@@ -15,13 +15,14 @@
 </template>
 
 <script setup lang="ts">
-import { module, sidebarContents } from "@/stores/ui";
+import { module, sidebarContents,getNames } from "@/stores/ui";
 import { onMounted } from "vue";
 import ListBox from "@/components/ListBox.vue";
 import EmptyProj from "@/components/EmptyProject.vue";
 
 const store = module();
 const side = sidebarContents();
+const subName = getNames()
 
 const selectOption = [
   { title: "개인가게부", description: "나의 소중한 가게부", current: true },
