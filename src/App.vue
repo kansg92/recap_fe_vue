@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full">
     <header>
-      <HeaderMain v-show="showTopbar" />
+      <HeaderMain v-show="showTopbar" class="z-50 "/>
     </header>
     <div class="py-2 min-h-screen">
       <SideBar v-show="sidebarOpen" />

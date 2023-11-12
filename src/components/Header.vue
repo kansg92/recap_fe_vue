@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
+        <a v-for="item in navigation" :key="item.name" :href="item.href" @click="subName.setName(item.name)" class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
@@ -36,6 +36,7 @@
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
               <router-link
+                @click="mobileMenuOpen = false; subName.setName(item.name);"
                 v-for="item in navigation"
                 :key="item.name"
                 :to="item.href"
@@ -57,11 +58,14 @@
 import { ref } from "vue";
 import { Dialog, DialogPanel } from "@headlessui/vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
+import { getNames } from "@/stores/ui";
+
+const subName = getNames();
 
 const navigation = [
-  { name: "소개", href: "/about" },
-  { name: "데일리리포트", href: "/dailyreport" },
-  { name: "가계부", href: "/accountbook" },
+  { name: "소개", href: "/about/main" },
+  { name: "데일리리포트", href: "/dailyreport/main" },
+  { name: "가계부", href: "/accountbook/main" },
   { name: "습관카드", href: "#" },
 ];
 

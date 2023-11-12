@@ -45,3 +45,15 @@ export const sidebarContents = defineStore("sidebar", ()=>{
 
   return {sideContent, setContents};
 });
+
+
+export const getNames = defineStore("names", ()=>{
+
+  const getName = ref<string>('')
+
+  const setName = (name:string) =>{
+    getName.value = name
+  }
+
+  return {setName,getName};
+})

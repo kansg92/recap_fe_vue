@@ -56,33 +56,9 @@
                   <a href="/" class="flex items-center gap-2"><img class="h-8 w-auto" src="@/assets/red_bottle_cap_aih.png" alt="Your Company" />Re;Cap</a>
                 </div>
                 <nav class="flex flex-1 flex-col">
-                  <ul role="list" class="flex flex-1 flex-col gap-y-7">
-                    <li>
-                      <ul role="list" class="-mx-2 space-y-1">
-                        <li v-for="item in navigation" :key="item.name">
-                          <router-link v-slot="{ href, route, navigate, isActive, isExactActive }" :to="item.href">
-                            <a
-                              :class="[
-                                isActive ? 'bg-gray-50 text-indigo-600' : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
-                                'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
-                              ]"
-                            >
-                              <component
-                                :is="item.icon"
-                                :class="[isActive ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600', 'h-6 w-6 shrink-0']"
-                                aria-hidden="true"
-                              />
-                              {{ item.name }}
-                            </a>
-                          </router-link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <div class="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
-                      <ul role="list" class="-mx-2 mt-2 space-y-1">
+                  <ul role="list" class="-mx-2 mt-2 space-y-1">
                         <li v-for="content in contents" :key="content.name">
-                          <router-link v-slot="{ href, route, navigate, isActive, isExactActive }" :to="content.href">
+                          <router-link v-slot="{ href, route, navigate, isActive, isExactActive }" :to="content.href" >
                             <a
                               :class="[
                                 isActive ? 'bg-gray-50 text-indigo-600' : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
@@ -97,6 +73,31 @@
                                 >{{ content.icon }}</span
                               >
                               <span class="truncate">{{ content.name }}</span>
+                            </a>
+                          </router-link>
+                        </li>
+                      </ul>
+                  <ul role="list" class="flex flex-1 flex-col gap-y-7">
+                    <li>
+
+                    </li>
+                    <li>
+                      <div class="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
+                      <ul role="list" class="-mx-2 space-y-1">
+                        <li v-for="(item, i) in navigation" :key="item.name">
+                          <router-link v-slot="{ href, route, navigate, isActive, isExactActive }" :to="item.href" @click="subName.setName(item.name)">
+                            <a
+                              :class="[
+                                isActive ? 'bg-gray-50 text-indigo-600' : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
+                                'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                              ]"
+                            >
+                              <component
+                                :is="item.icon"
+                                :class="[isActive ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600', 'h-6 w-6 shrink-0']"
+                                aria-hidden="true"
+                              />
+                              {{ item.name }}
                             </a>
                           </router-link>
                         </li>
@@ -120,26 +121,7 @@
         </div>
         <nav class="flex flex-1 flex-col">
           <ul role="list" class="flex flex-1 flex-col gap-y-7">
-            <li>
-              <ul role="list" class="-mx-2 space-y-1">
-                <li v-for="item in navigation" :key="item.name">
-                  <router-link v-slot="{ href, route, navigate, isActive, isExactActive }" :to="item.href">
-                    <a
-                      :class="[
-                        isActive ? 'bg-gray-50 text-indigo-600' : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
-                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
-                      ]"
-                    >
-                      <component :is="item.icon" :class="[isActive ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600', 'h-6 w-6 shrink-0']" aria-hidden="true" />
-                      {{ item.name }}
-                    </a>
-                  </router-link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <div class="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
-              <ul role="list" class="-mx-2 mt-2 space-y-1">
+            <ul role="list" class="-mx-2 mt-2 space-y-1">
                 <li v-for="content in contents" :key="content.name">
                   <router-link :to="content.href" v-slot="{ href, route, navigate, isActive, isExactActive }">
                     <a
@@ -160,6 +142,26 @@
                   </router-link>
                 </li>
               </ul>
+            
+            <li >
+              <div class="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
+              <li>
+              <ul role="list" class="-mx-2 space-y-1">
+                <li v-for="(item, i) in navigation" :key="item.name">
+                  <router-link v-slot="{ href, route, navigate, isActive, isExactActive }" :to="item.href" @click="subName.setName(item.name)">
+                    <a
+                      :class="[
+                        isActive ? 'bg-gray-50 text-indigo-600' : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
+                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                      ]"
+                    >
+                      <component :is="item.icon" :class="[isActive ? 'text-indigo-600' : 'text-gray-400 group-hover:text-indigo-600', 'h-6 w-6 shrink-0']" aria-hidden="true" />
+                      {{ item.name }}
+                    </a>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
             </li>
             <li class="-mx-6 mt-auto">
               <router-link to="#" class="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50">
@@ -182,7 +184,7 @@
         <span class="sr-only">Open sidebar</span>
         <Bars3Icon class="h-6 w-6" aria-hidden="true" />
       </button>
-      <div class="flex-1 text-sm font-semibold leading-6 text-gray-900">Dashboard</div>
+      <div class="flex-1 text-sm font-semibold leading-6 text-gray-900">{{ subName.getName }}</div>
       <router-link to="#">
         <span class="sr-only">Your profile</span>
         <img
@@ -192,7 +194,6 @@
         />
       </router-link>
     </div>
-
     <!-- <main class="py-10 lg:pl-72">
       <div class="px-4 sm:px-6 lg:px-8">
         contents???
@@ -205,27 +206,27 @@
 import { computed, onMounted, ref } from "vue";
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from "@headlessui/vue";
 import { Bars3Icon, CalendarIcon, ChartPieIcon, DocumentDuplicateIcon, FolderIcon, HomeIcon, UsersIcon, XMarkIcon } from "@heroicons/vue/24/outline";
-import { sidebarContents } from "@/stores/ui";
+import { sidebarContents,getNames } from "@/stores/ui";
+
+const subName = getNames();
 const store = sidebarContents();
 
 const navigation = [
   {
     name: "데일리리포트",
-    href: "/dailyreport",
+    href: "/dailyreport/main",
     icon: HomeIcon,
   },
-  { name: "가계부", href: "/accountbook", icon: UsersIcon },
+  { name: "가계부", href: "/accountbook/main", icon: UsersIcon },
   { name: "습관노트", href: "/habbitCard", icon: FolderIcon },
   // { name: "Calendar", href: "#", icon: CalendarIcon },
   // { name: "Documents", href: "#", icon: DocumentDuplicateIcon },
   // { name: "Reports", href: "#", icon: ChartPieIcon },
 ];
 
+const selectedNav = ref(navigation[0])
+
 const contents = computed(()=> store.sideContent)
-
-
-
-
 
 
 const sidebarOpen = ref(false);

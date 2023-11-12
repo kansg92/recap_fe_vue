@@ -1,25 +1,24 @@
 <template>
-  <main class="pl-52 h-screen">
-    <div class="px-4 sm:px-6 lg:px-8 h-full">
-      <div class="float-right">
-        <ListBox :selectOption="selectOption" />
+  <div class="lg:pl-56 h-screen">
+    <div class="h-full">
+      <div class="flex items-center h-12 border-b ">
+        <span class="lg:pl-4 pl-2">아마도 제목</span>
       </div>
-      <h1>AccountBook</h1>
+      <div class="float-right">
+        <!-- <ListBox :selectOption="selectOption"></ListBox> -->
+      </div>
       <div class="h-full">
-        <div class="flex flex-col justify-center items-center h-full">
-          <EmptyProj />
-          <h2>등록된 가계부가 없습니다...</h2>
-        </div>
+        <RouterView></RouterView>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { module, sidebarContents } from "@/stores/ui";
 import { onMounted } from "vue";
 import ListBox from "@/components/ListBox.vue";
-import EmptyProj from "@/components/EmptyProject.vue"
+import EmptyProj from "@/components/EmptyProject.vue";
 
 const store = module();
 const side = sidebarContents();
@@ -30,10 +29,11 @@ const selectOption = [
 ];
 
 const content = [
-  { name: "예산", href: "/", icon: "H" },
-  { name: "가계부작성", href: "/", icon: "T" },
-  { name: "달력", href: "/", icon: "W" },
-  { name: "통계", href: "/", icon: "W" },
+  { name: "홈", href: "main", icon: "H" },
+  { name: "예산", href: "budget", icon: "B" },
+  { name: "가계부작성", href: "/", icon: "A" },
+  { name: "달력", href: "/", icon: "C" },
+  { name: "통계", href: "/", icon: "C" },
 ];
 
 onMounted(() => {

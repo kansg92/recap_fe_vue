@@ -19,10 +19,24 @@ const router = createRouter({
       name: 'dailyreport',
       component: () => import('@/views/daily_report/DailyReportView.vue')
     },
+
+    // 가계부
     {
       path: '/accountbook',
       name: 'accountbook',
-      component: () => import('@/views/accountBook/AccountBook.vue')
+      component: () => import('@/views/Accountbook/AccountBook.vue'),
+      children: [
+        {
+          path : 'main',
+          name : 'accountMain',
+          component : () => import('@/views/Accountbook/MainView.vue')
+        },
+        {
+          path : 'budget',
+          name : 'budget',
+          component : () => import('@/views/Accountbook/BudgetView.vue')
+        },
+      ]
     },
 
 //  ******************************* ErroPage *****************************************
