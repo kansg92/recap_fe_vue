@@ -32,9 +32,9 @@ const selectOption = [
 const content = [
   { name: "홈", href: "main", icon: "H" },
   { name: "예산", href: "budget", icon: "B" },
-  { name: "가계부작성", href: "/", icon: "A" },
-  { name: "달력", href: "/", icon: "C" },
-  { name: "통계", href: "/", icon: "C" },
+  { name: "가계부작성", href: "books", icon: "A" },
+  { name: "달력", href: "callender", icon: "C" },
+  { name: "통계", href: "report", icon: "C" },
 ];
 
 onMounted(() => {
