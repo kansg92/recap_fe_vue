@@ -51,6 +51,11 @@ const router = createRouter({
           name : 'accountReport',
           component : () => import('@/views/Accountbook/ReportView.vue')
         },
+        {
+          path : 'library',
+          name : 'accountLibrary',
+          component : () => import('@/views/Accountbook/LibraryView.vue')
+        },
       ]
     },
 

@@ -31,8 +31,9 @@ const selectOption = [
 
 const content = [
   { name: "홈", href: "main", icon: "H" },
+  { name: "라이브러리", href: "library", icon: "L" },
   { name: "예산", href: "budget", icon: "B" },
-  { name: "가계부작성", href: "books", icon: "A" },
+  { name: "가계부내역", href: "books", icon: "W" },
   { name: "달력", href: "callender", icon: "C" },
   { name: "통계", href: "report", icon: "C" },
 ];
