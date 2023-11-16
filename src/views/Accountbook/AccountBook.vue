@@ -1,8 +1,8 @@
 <template>
   <div class="lg:pl-56 h-screen">
     <div class="h-full">
-      <div class="flex items-center h-12 border-b ">
-        <span class="lg:pl-4 pl-2">{{ subName.getName }}</span>
+      <div class="flex items-center lg:h-10 border-b bg-slate-100 max-lg:hidden">
+        <span class="lg:pl-4 pl-2 ">{{ subName.getName }}</span>
       </div>
       <div class="float-right">
         <!-- <ListBox :selectOption="selectOption"></ListBox> -->
