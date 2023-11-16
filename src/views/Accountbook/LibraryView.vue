@@ -9,8 +9,18 @@
       </div>
       <div>
         <p v-for="tab in tabs" :key="tab.href">
-          <span v-show="tab.current">{{ tab.name }}</span>
-          
+          <!-- <span v-show="tab.current">{{ tab.name }}</span> -->
+          <div class="mt-4 pr-3">
+          <div v-if="tab.current && tab.href == 0" >
+            <CardList />
+          </div>
+          <div v-if="tab.current && tab.href == 1">
+            <SimpleCard />
+          </div>
+          <div  v-if="tab.current && tab.href == 2" >
+            <LogosCard />
+          </div>
+        </div>
         </p>
       </div>
     </main>
@@ -19,6 +29,10 @@
 
 <script setup lang="ts">
 import TabsInPill from '@/components/TabsInPill.vue';
+import CardList from '@/components/grid-list/CardList.vue';
+import SimpleCard from '@/components/grid-list/SimpleCardList.vue'
+import LogosCard from '@/components/grid-list/LogosCard.vue'
+
 import { ref } from 'vue';
 const tabs = ref([
     { name: '카테고리', href: 0, current: false },
