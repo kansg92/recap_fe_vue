@@ -5,7 +5,7 @@
     </header>
     <main class="pl-4 mt-4 border h-screen">
       <div class="pt-2 mb-2">
-        <TabsInPill v-model:tabs="tabs"/>
+        <TabsInPill :tabs="tabs"/>
       </div>
       <div>
         <p v-for="tab in tabs" :key="tab.href">
@@ -35,9 +35,9 @@ import LogosCard from '@/components/grid-list/LogosCard.vue'
 
 import { ref } from 'vue';
 const tabs = ref([
-    { name: '카테고리', href: 0, current: false },
+    { name: '카테고리', href: 0, current: true },
     { name: '태그', href: 1, current: false },
-    { name: '카드', href: 2, current: true },
+    { name: '카드', href: 2, current: false },
     { name: '계좌', href: 3, current: false },
   ])
 

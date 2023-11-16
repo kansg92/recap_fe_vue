@@ -3,11 +3,11 @@
     <header class="flex pl-4 py-2 h-10 items-center bg-slate-300">
       <span class="font-semibold">2023년도 예산</span>
     </header>
-    <main class="pl-4 mt-4 border h-screen">
+    <main class="pl-4 pt-2 border h-screen">
       <TabsInPill :tabs="tabs" />
       <div class="mt-2">
         <div v-for="tab in tabs" :key="tab.href">
-          <div v-show="tab.current">
+          <div v-show="tab.current && tab.href == 0">
             {{ tab.name }}
             <table class="border mt-2">
               <thead>
@@ -37,6 +37,13 @@
               </tbody>
             </table>
           </div>
+          <div v-show="tab.current && tab.href == 1">
+            <StackedTable />
+          </div>
+          <div v-show="tab.current && tab.href == 2">
+            <BasTable :tHead="tHead"/>
+          </div>
+          <div v-show="tab.current && tab.href == 3"></div>
         </div>
       </div>
     </main>
@@ -46,11 +53,18 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import TabsInPill from "@/components/TabsInPill.vue";
+import StackedTable from "@/components/table/StackedTable.vue";
+import BasTable from "@/components/table/BasTable.vue";
 
 const tabs = ref([
-  { name: "수입", href: 0, current: false },
+  { name: "수입", href: 0, current: true },
   { name: "지출", href: 1, current: false },
-  { name: "저축", href: 2, current: true },
+  { name: "저축", href: 2, current: false },
   { name: "투자", href: 3, current: false },
 ]);
+
+const tHead = ["항목", "내용", "금액", "일자", "반복주기", "결제수단", "비고"];
+
+
+
 </script>
