@@ -3,9 +3,9 @@
     <header class="flex pl-4 py-2 h-10 items-center bg-slate-300">
       <span class="font-semibold">2023년도 예산</span>
     </header>
-    <main class="pl-4 pt-2 border h-screen">
+    <main class="pt-2 border h-screen">
       <TabsInPill v-model:tabs="tabs" />
-      <div class="mt-2">
+      <div class="mt-2 pl-4">
         <div v-for="tab in tabs" :key="tab.href">
           <div v-show="tab.current && tab.href == 0">
             {{ tab.name }}

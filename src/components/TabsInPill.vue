@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="border-b pb-2">
     <div class="sm:hidden">
       <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
       <select
@@ -16,7 +16,7 @@
         </option>
       </select>
     </div>
-    <div class="hidden sm:block">
+    <div class="hidden sm:block  ml-3">
       <nav class="flex space-x-4" aria-label="Tabs">
         <a
           v-for="tab in tabs"

@@ -7,7 +7,7 @@
       <SideBar v-show="sidebarOpen" />
       <RouterView />
     </div>
-    <footer class="">
+    <footer class="" v-show="false">
       <FooterBar class="relative bottom-0" />
     </footer >
   </div>
