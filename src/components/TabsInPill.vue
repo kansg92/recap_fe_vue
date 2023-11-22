@@ -45,7 +45,7 @@ import { ref, watch } from "vue";
 
 const props = defineProps(["tabs"]);
 
-const setCurrent = (tabs: any, tab: string | Object) => {
+const setCurrent = (tabs: any, tab: string | {current:boolean}) => {
   tabs.forEach((el: any) => {
     el.current = false;
     if (typeof(tab) == "string") {
