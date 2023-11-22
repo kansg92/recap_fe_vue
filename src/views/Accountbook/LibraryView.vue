@@ -5,7 +5,7 @@
     </header>
     <main class="pl-4 mt-4 border h-screen">
       <div class="pt-2 mb-2">
-        <TabsInPill :tabs="tabs"/>
+        <TabsInPill v-model:tabs="tabs"/>
       </div>
       <div>
         <p v-for="tab in tabs" :key="tab.href">

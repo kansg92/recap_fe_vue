@@ -4,7 +4,7 @@
       <span class="font-semibold">2023년도 예산</span>
     </header>
     <main class="pl-4 pt-2 border h-screen">
-      <TabsInPill :tabs="tabs" />
+      <TabsInPill v-model:tabs="tabs" />
       <div class="mt-2">
         <div v-for="tab in tabs" :key="tab.href">
           <div v-show="tab.current && tab.href == 0">
