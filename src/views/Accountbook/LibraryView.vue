@@ -15,7 +15,7 @@
             <CardList :categoryList="actions"/>
           </div>
           <div v-if="tab.current && tab.href == 1">
-            <SimpleCard />
+            <SimpleCard v-model:tags="tags"/>
           </div>
           <div  v-if="tab.current && tab.href == 2" >
             <LogosCard />
@@ -44,10 +44,13 @@ const tabs = ref([
     { name: '계좌', href: 3, current: false },
   ])
 
+
+  /**************************** 카테고리 들어가는 내용 데이터 백에서 호출로 변경되어야함~! ********************************************************/
   const actions = [
   {
     title: "식사",
     icon: ClockIcon,
+    contents : ['고기', '기타', '배달', '분식', '뷔페', '식재료', '아시아음식', '양식', '일반식당', '일식', '중식', '치킨', '패밀리레스토랑', '패스트푸드', '한식' ],
     iconForeground: "text-teal-700",
     iconBackground: "bg-teal-50",
   },
@@ -83,6 +86,39 @@ const tabs = ref([
   },
 ];
 
+/**************************** 테그 들어가는 내용 데이터 백에서 호출로 변경되어야함~! ********************************************************/
+const tags = [
+  {
+    name: "가족",
+    initials: "GA",
+    href: "#",
+    bgColor: "bg-pink-600",
+  },
+  {
+    name: "데이트",
+    initials: "CD",
+    href: "#",
+    bgColor: "bg-purple-600",
+  },
+  {
+    name: "선물",
+    initials: "T",
+    href: "#",
+    bgColor: "bg-yellow-500",
+  },
+  {
+    name: "회사",
+    initials: "RC",
+    href: "#",
+    bgColor: "bg-green-500",
+  },
+  {
+    name: "여행",
+    initials: "RC",
+    href: "#",
+    bgColor: "bg-green-500",
+  },
+];
 
 
 
