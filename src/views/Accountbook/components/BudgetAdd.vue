@@ -31,7 +31,7 @@
                 <div class="mt-3 text-center sm:mt-5">
                   <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">예산 내역 추가</DialogTitle>
                   <form class="mt-2 flex">
-                    <div class="mt-2 flex flex-col justify-start">
+                    <div class="mt-2 flex flex-col justify-start gap-y-6">
                       <p class="text-left text-sm text-gray-500">카데고리 :</p>
                       <p class="text-left text-sm text-gray-500">내용 :</p>
                       <p class="text-left text-sm text-gray-500">금액 :</p>
@@ -42,6 +42,7 @@
                       <p class="text-left text-sm text-gray-500">비고 :</p>
                     </div>
                     <div class="mt-2 flex flex-col justify-start">
+                        <VueDatePicker v-model="date"></VueDatePicker>
                     </div>
                   </form>
                 </div>
@@ -73,11 +74,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue";
-import { Datepicker, Input, initTE } from "tw-elements";
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
 
-import { CheckIcon } from "@heroicons/vue/24/outline";
-
-initTE({ Datepicker, Input }, { allowReinits: true });
 
 const open = ref(true);
+
+const date = ref();
+
 </script>
