@@ -24,37 +24,37 @@ const router = createRouter({
     {
       path: '/accountbook',
       name: 'accountbook',
-      component: () => import('@/views/Accountbook/AccountBook.vue'),
+      component: () => import('@/views/accountBook/AccountBook.vue'),
       children: [
         {
           path : 'main',
           name : 'accountMain',
-          component : () => import('@/views/Accountbook/MainView.vue')
+          component : () => import('@/views/accountBook/MainView.vue')
         },
         {
           path : 'budget',
           name : 'budget',
-          component : () => import('@/views/Accountbook/BudgetView.vue')
+          component : () => import('@/views/accountBook/BudgetView.vue')
         },
         {
           path : 'books',
           name : 'accountBooks',
-          component : () => import('@/views/Accountbook/BooksView.vue')
+          component : () => import('@/views/accountBook/BooksView.vue')
         },
         {
           path : 'callender',
           name : 'accountCallender',
-          component : () => import('@/views/Accountbook/CallenderView.vue')
+          component : () => import('@/views/accountBook/CallenderView.vue')
         },
         {
           path : 'report',
           name : 'accountReport',
-          component : () => import('@/views/Accountbook/ReportView.vue')
+          component : () => import('@/views/accountBook/ReportView.vue')
         },
         {
           path : 'library',
           name : 'accountLibrary',
-          component : () => import('@/views/Accountbook/LibraryView.vue')
+          component : () => import('@/views/accountBook/LibraryView.vue')
         },
       ]
     },
