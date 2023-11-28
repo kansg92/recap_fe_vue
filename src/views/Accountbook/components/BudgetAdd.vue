@@ -1,18 +1,18 @@
 <template>
   <TransitionRoot as="template" :show="open">
     <Dialog as="div" class="relative z-[100]" @close="open = false">
-      <TransitionChild
-        as="template"
-        enter="ease-out duration-300"
-        enter-from="opacity-0"
-        enter-to="opacity-100"
-        leave="ease-in duration-200"
-        leave-from="opacity-100"
-        leave-to="opacity-0"
-      >
-        <div class="fixed w-screen inset-0 bg-gray-600 bg-opacity-5 transition-opacity" />
-      </TransitionChild>
       <div class="fixed inset-0 z-[100] w-screen overflow-y-auto">
+        <TransitionChild
+          as="template"
+          enter="ease-out duration-300"
+          enter-from="opacity-0"
+          enter-to="opacity-100"
+          leave="ease-in duration-200"
+          leave-from="opacity-100"
+          leave-to="opacity-0"
+        >
+          <div class="fixed w-screen inset-0 bg-gray-600 bg-opacity-5 transition-opacity" />
+        </TransitionChild>
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <TransitionChild
             as="template"
@@ -30,21 +30,62 @@
                 </div> -->
                 <div class="mt-3 text-center sm:mt-5">
                   <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">예산 내역 추가</DialogTitle>
-                  <form class="mt-2 flex">
-                    <div class="mt-2 flex flex-col justify-start gap-y-6">
-                      <p class="text-left text-sm text-gray-500">카데고리 :</p>
-                      <p class="text-left text-sm text-gray-500">내용 :</p>
-                      <p class="text-left text-sm text-gray-500">금액 :</p>
-                      <p class="text-left text-sm text-gray-500">결제수단 :</p>
-                      <p class="text-left text-sm text-gray-500">날짜 선택 :</p>
-                      <p class="text-left text-sm text-gray-500">반복주기 :</p>
-                      <p class="text-left text-sm text-gray-500">테그 :</p>
-                      <p class="text-left text-sm text-gray-500">비고 :</p>
+                  <div class="mt-2 flex flex-col justify-start gap-y-6">
+                    <div class="grid grid-cols-5 grid-rows-2 gap-y-2">
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center">카데고리</p>
+                      <select class="col-span-4 border">
+                        <option>식사</option>
+                        <option>식사2</option>
+                        <option>식사</option>
+                      </select>
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center"></p>
+                      <select class="col-span-4 border">
+                        <option>상세카테고리</option>
+                        <option>식사2</option>
+                        <option>식사</option>
+                      </select>
                     </div>
-                    <div class="mt-2 flex flex-col justify-start">
-                        <VueDatePicker v-model="date"></VueDatePicker>
+                    <div class="grid grid-cols-5 grid-rows-1 gap-y-2">
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center">내용</p>
+                      <input class="col-span-4 border" />
                     </div>
-                  </form>
+                    <div class="grid grid-cols-5 grid-rows-1 gap-y-2">
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center">금액</p>
+                      <input type="number" class="col-span-4 border" />
+                    </div>
+                    <div class="grid grid-cols-5 grid-rows-2 gap-y-2">
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center">결제수단</p>
+                      <select class="col-span-4 border">
+                        <option>계좌 카드에서 오지요</option>
+                      </select>
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center"></p>
+                      <select class="col-span-4 border">
+                        <option>일시불</option>
+                      </select>
+                    </div>
+                    <div class="grid grid-cols-5 grid-rows-2 gap-y-2">
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center">날짜 선택</p>
+                      <VueDatePicker v-model="date" class="col-span-4"></VueDatePicker>
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center"></p>
+                      <select class="col-span-4 border">
+                        <option>반복주기</option>
+                      </select>
+                    </div>
+                    <div class="grid grid-cols-5 grid-rows-1 gap-y-2">
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center mt-1">테그</p>
+                      <div class="col-span-4 text-sm text-gray-500 font-semibold text-left break-words ">
+                        <span class="border inline-block mr-2 mt-1">태그aaaaaaaaa1</span>
+                        <span class="border inline-block mr-2 mt-1">태그1</span>
+                        <span class="border inline-block mr-2 mt-1">태그1</span>
+                        <span class="border inline-block mr-2 mt-1">태그1</span>
+                        <span class="border inline-block mr-2 mt-1">태그1111111</span>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-5 grid-rows-1 gap-y-2">
+                      <p class="col-span-1 text-sm text-gray-500 font-semibold text-center">메모</p>
+                      <input class="col-span-4 border" />
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="mt-5 sm:mt-6 flex justify-end gap-2">
@@ -74,12 +115,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from "@headlessui/vue";
-import VueDatePicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
-
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 
 const open = ref(true);
 
 const date = ref();
-
 </script>
