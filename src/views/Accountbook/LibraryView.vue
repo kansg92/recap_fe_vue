@@ -15,7 +15,7 @@
             <CardList :categoryList="actions"/>
           </div>
           <div v-if="tab.current && tab.href == 1">
-            <SimpleCard v-model:tags="tags"/>
+            <SimpleCard v-model:tags="tags" />
           </div>
           <div  v-if="tab.current && tab.href == 2" >
             <LogosCard />
@@ -36,6 +36,7 @@ import SimpleCard from '@/components/grid-list/SimpleCardList.vue'
 import LogosCard from '@/components/grid-list/LogosCard.vue'
 
 import { ref } from 'vue';
+
 
 const tabs = ref([
     { name: '카테고리', href: 0, current: true },
@@ -87,7 +88,7 @@ const tabs = ref([
 ];
 
 /**************************** 테그 들어가는 내용 데이터 백에서 호출로 변경되어야함~! ********************************************************/
-const tags = [
+const tags = ref([
   {
     name: "가족",
     initials: "GA",
@@ -118,7 +119,7 @@ const tags = [
     href: "#",
     bgColor: "bg-green-500",
   },
-];
+]);
 
 
 
