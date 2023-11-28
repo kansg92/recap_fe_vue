@@ -7,9 +7,8 @@
       <TabsInPill v-model:tabs="tabs" />
       <div class="mt-2 pl-4">
         <div v-for="tab in tabs" :key="tab.href">
-          <div v-show="tab.current && tab.href == 0">
-            {{ tab.name }}
-            <table class="border mt-2">
+          <div v-show="tab.current && tab.href == 0" class="pr-12">
+            <!-- <table class="border mt-2">
               <thead>
                 <tr>
                   <td class="border">항목</td>
@@ -35,15 +34,35 @@
                   <td colspan="7" class="border text-center">+</td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
+
+            <div class="sm:flex-auto">
+              <h1 class="text-base font-semibold leading-6 text-gray-900">수입예산</h1>
+              <p class="mt-2 text-sm text-gray-700">1년중 수입에대한 예산을 입력해주세요</p>
+            </div>
+            <BudgetTable v-model:budgetList="budgetList" />
           </div>
-          <div v-show="tab.current && tab.href == 1">
-            <StackedTable />
+          <div v-show="tab.current && tab.href == 1" class="pr-12">
+            <div class="sm:flex-auto">
+              <h1 class="text-base font-semibold leading-6 text-gray-900">지출예산</h1>
+              <p class="mt-2 text-sm text-gray-700">1년중 지출에대한 예산을 입력해주세요</p>
+            </div>
+            <BudgetTable v-model:budgetList="budgetList" />
           </div>
-          <div v-show="tab.current && tab.href == 2">
-            <BasTable :tHead="tHead"/>
+          <div v-show="tab.current && tab.href == 2" class="pr-12">
+            <div class="sm:flex-auto">
+              <h1 class="text-base font-semibold leading-6 text-gray-900">저축예산</h1>
+              <p class="mt-2 text-sm text-gray-700">1년중 저축에대한 예산을 입력해주세요</p>
+            </div>
+            <BudgetTable v-model:budgetList="budgetList" />
           </div>
-          <div v-show="tab.current && tab.href == 3"></div>
+          <div v-show="tab.current && tab.href == 3" class="pr-12">
+            <div class="sm:flex-auto">
+              <h1 class="text-base font-semibold leading-6 text-gray-900">투자예산</h1>
+              <p class="mt-2 text-sm text-gray-700">1년중 투자에대한 예산을 입력해주세요</p>
+            </div>
+            <BudgetTable v-model:budgetList="budgetList" />
+          </div>
         </div>
       </div>
     </main>
@@ -53,9 +72,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import TabsInPill from "@/components/TabsInPill.vue";
-import StackedTable from "@/components/table/StackedTable.vue";
-import BasTable from "@/components/table/BasTable.vue";
+import BudgetTable from "./components/BudgetTable.vue";
 
+
+/** tabs  */
 const tabs = ref([
   { name: "수입", href: 0, current: true },
   { name: "지출", href: 1, current: false },
@@ -63,8 +83,15 @@ const tabs = ref([
   { name: "투자", href: 3, current: false },
 ]);
 
-const tHead = ["항목", "내용", "금액", "일자", "반복주기", "결제수단", "비고"];
+/** 예산 목록 */
+const budgetList = ref([{ category: "주수입", contents: "월급", am: 10000, role: "계좌" }]);
+
+const addbudget = (dsc:number) =>{
+  // 0수입 1지출 3저축 4투자
+  
+  
 
 
+}
 
 </script>
