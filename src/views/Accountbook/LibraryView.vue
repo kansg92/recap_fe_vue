@@ -17,9 +17,6 @@
           <div v-if="tab.current && tab.href == 1">
             <SimpleCard v-model:tags="tags" />
           </div>
-          <div  v-if="tab.current && tab.href == 2" >
-            <LogosCard />
-          </div>
         </div>
         </p>
       </div>
@@ -41,8 +38,6 @@ import { ref } from 'vue';
 const tabs = ref([
     { name: '카테고리', href: 0, current: true },
     { name: '태그', href: 1, current: false },
-    { name: '카드', href: 2, current: false },
-    { name: '계좌', href: 3, current: false },
   ])
 
 
