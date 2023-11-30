@@ -8,7 +8,6 @@
           <div class="flex flex-col gap-4 px-0 py-4">
             <div>
               <label class="text-gray-700">Email address</label>
-              <!-- <AtSymbolIcon class="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11" /> -->
               <svg xmlns="http://www.w3.org/2000/svg" class="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   stroke-linecap="round"
