@@ -18,11 +18,11 @@
             leave-to-class="transform opacity-0 scale-95"
           >
             <MenuItems class="absolute right-0 z-10 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
-              <MenuItem v-slot="{ active }">
+              <!-- <MenuItem v-slot="{ active }">
                 <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-sm leading-6 text-gray-900']"
                   >View<span class="sr-only">, {{ client.name }}</span></a
                 >
-              </MenuItem>
+              </MenuItem> -->
               <MenuItem v-slot="{ active }">
                 <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-sm leading-6 text-gray-900']"
                   >Edit<span class="sr-only">, {{ client.name }}</span></a
