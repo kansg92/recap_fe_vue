@@ -5,7 +5,7 @@
       <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
         <button
           type="button"
-          class="absolute right-5 bottom-5 block rounded-full bg-indigo-600 px-2 py-2 font-bold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          class="fixed right-5 bottom-5 block rounded-full bg-indigo-600 px-2 py-2 font-bold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           @click="budgetAdd = true"
           >
           <PlusIcon class="w-6 h-6" />

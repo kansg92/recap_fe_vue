@@ -19,13 +19,28 @@
           >
             <MenuItems class="absolute right-0 z-10 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
               <MenuItem v-slot="{ active }">
-                <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-sm leading-6 text-gray-900']"
+                <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-xs leading-6 text-gray-900']"
                   >내역보기<span class="sr-only">, {{ card.name }}</span></a
                 >
               </MenuItem>
               <MenuItem v-slot="{ active }">
-                <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-sm leading-6 text-gray-900']"
+                <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-xs leading-6 text-gray-900']"
                   >수정<span class="sr-only">, {{ card.name }}</span></a
+                >
+              </MenuItem>
+              <MenuItem v-slot="{ active }" >
+                <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-xs leading-6 text-gray-900']"
+                  >합치기<span class="sr-only">, {{ card.name }}</span></a
+                >
+              </MenuItem>
+              <MenuItem v-slot="{ active }" v-if="card.dsc == '신용' || card.dsc == '체크' ">
+                <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-xs leading-6 text-gray-900']"
+                  >계좌 연결<span class="sr-only">, {{ card.name }}</span></a
+                >
+              </MenuItem>
+              <MenuItem v-slot="{ active }" >
+                <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-xs leading-6 text-gray-900']"
+                  >삭제<span class="sr-only">, {{ card.name }}</span></a
                 >
               </MenuItem>
             </MenuItems>
