@@ -30,7 +30,6 @@ import { AcademicCapIcon, BanknotesIcon, EllipsisVerticalIcon,CheckBadgeIcon, Cl
 import TabsInPill from '@/components/TabsInPill.vue';
 import CardList from '@/components/grid-list/CardList.vue';
 import SimpleCard from '@/components/grid-list/SimpleCardList.vue'
-import LogosCard from '@/components/grid-list/LogosCard.vue'
 
 import { ref } from 'vue';
 

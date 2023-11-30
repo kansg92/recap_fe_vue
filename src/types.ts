@@ -1,18 +1,19 @@
 
 /** 자산 type 선언 */
-export interface asset {
+export interface Asset {
+    id   : number,
     name : string,
-    dsc  : '카드' | '현금' | '계좌' | '증권' | '부채'
+    dsc  : '신용' | '체크' | '현금' | '계좌' | '증권' | '부채'
     amount : number
     img : string
     user : string
     share : boolean
-    pauDate? : string
+    payDate? : number
     cntn : string
 }
 
 
-export interface tag{
+export interface Tag{
     name : string,
     user : string,
     share : boolean

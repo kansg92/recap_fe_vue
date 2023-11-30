@@ -32,7 +32,7 @@
                     leave-from-class="transform opacity-100 scale-100"
                     leave-to-class="transform opacity-0 scale-95"
                   >
-                    <MenuItems class="absolute right-0 z-20 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
+                    <MenuItems class="absolute right-3 top-8 z-20 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
                       <MenuItem v-slot="{ active }">
                         <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-sm leading-6 text-gray-900']">Edit<span class="sr-only">, {{}}</span></a>
                       </MenuItem>
@@ -56,7 +56,6 @@
 import { EllipsisVerticalIcon, PlusCircleIcon } from "@heroicons/vue/20/solid";
 
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
-import { EllipsisHorizontalIcon } from "@heroicons/vue/20/solid";
 
 const proops = defineProps<{
   tags: {
