@@ -89,9 +89,6 @@ const budgetList = ref([{ category: "주수입", contents: "월급", am: 10000, 
 const addbudget = (dsc:number) =>{
   // 0수입 1지출 3저축 4투자
   
-  
-
-
 }
 
 </script>

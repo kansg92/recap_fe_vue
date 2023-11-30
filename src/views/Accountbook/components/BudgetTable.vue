@@ -1,12 +1,13 @@
 <template>
-  <budgetAdd />
+  <BudgetAdd  v-if="budgetAdd" v-model:open="budgetAdd" @update:open="(data)=> {budgetAdd = data; } "/>
   <div class="px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:items-center">
       <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
         <button
           type="button"
           class="absolute right-5 bottom-5 block rounded-full bg-indigo-600 px-2 py-2 font-bold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
+          @click="budgetAdd = true"
+          >
           <PlusIcon class="w-6 h-6" />
         </button>
       </div>
@@ -46,7 +47,10 @@
 <script setup lang="ts">
 import { PlusIcon } from "@heroicons/vue/24/outline";
 import { fnum } from "@/ts/utils";
-import budgetAdd from "./budgetAdd.vue";
+import BudgetAdd from "./BudgetAdd.vue";
+import { ref } from "vue";
+
+const budgetAdd = ref(false)
 
 defineProps<{
   budgetList: {

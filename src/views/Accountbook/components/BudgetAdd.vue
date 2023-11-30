@@ -1,6 +1,6 @@
 <template>
   <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="relative z-[100]" @close="open = false">
+    <Dialog as="div" class="relative z-[100]" >
       <div class="fixed inset-0 z-[100] w-screen overflow-y-auto">
         <TransitionChild
           as="template"
@@ -92,14 +92,14 @@
                 <button
                   type="button"
                   class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  @click="open = false"
+                  @click="$emit('update:open', false) /* 저장기능 만들어줘야행 */ "
                 >
                   저장
                 </button>
                 <button
                   type="button"
                   class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  @click="open = false"
+                  @click="$emit('update:open', false)"
                 >
                   취소
                 </button>
@@ -118,7 +118,9 @@ import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } fro
 import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 
-const open = ref(true);
+defineProps<{
+  open:boolean
+}>()
 
 const date = ref();
 </script>
