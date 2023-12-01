@@ -23,16 +23,16 @@
           <!-- <span v-show="tab.current">{{ tab.name }}</span> -->
           <div class="mt-4 pr-3">
             <div v-if="tab.current && tab.href == 0">
-              <AssetsCard :List="cards" />
+              <AssetsCard v-model:List="cards" />
             </div>
             <div v-if="tab.current && tab.href == 1">
-              <AssetsCard :List="banks" />
+              <AssetsCard v-model:List="banks" />
             </div>
             <div v-if="tab.current && tab.href == 2">
-              <AssetsCard :List="stock" />
+              <AssetsCard v-model:List="stock" />
             </div>
             <div v-if="tab.current && tab.href == 3">
-              <AssetsCard :List="liability" />
+              <AssetsCard v-model:List="liability" />
             </div>
           </div>
         </div>
@@ -63,8 +63,8 @@ import { onMounted, ref } from "vue";
 import type { Asset } from "@/types";
 
 const tabs = ref([
-  { name: "카드", href: 0, current: false },
-  { name: "은행", href: 1, current: true },
+  { name: "카드", href: 0, current: true },
+  { name: "은행", href: 1, current: false },
   { name: "증권", href: 2, current: false },
   { name: "부채", href: 3, current: false },
 ]);
@@ -81,10 +81,12 @@ const banks = ref<Asset[]>([
     img: "/src/assets/image/bank/kookmin.png",
     user: "luke",
     share: false,
+    sharedAsset :null,
     cntn: "테스트용",
+    modify : false,
   },
 ]);
-
+/** 카드 */
 const cards = ref<Asset[]>([
   {
     id: 0,
@@ -94,11 +96,13 @@ const cards = ref<Asset[]>([
     img: "/src/assets/image/card/lotte.jpg",
     user: "luke",
     share: false,
+    sharedAsset :null,
     payDate: 5,
     cntn: "테스트용",
+    modify : false,
   },
 ]);
-
+/** 증권 */
 const stock = ref<Asset[]>([
   {
     id: 0,
@@ -108,10 +112,12 @@ const stock = ref<Asset[]>([
     img: "/src/assets/image/bank/kookmin.png",
     user: "luke",
     share: false,
+    sharedAsset :null,
     cntn: "테스트용",
+    modify : false,
   },
 ]);
-
+/** 부채 */
 const liability = ref<Asset[]>([
   {
     id: 0,
@@ -121,7 +127,9 @@ const liability = ref<Asset[]>([
     img: "/src/assets/image/liability/hf.jpg",
     user: "luke",
     share: false,
+    sharedAsset :null,
     cntn: "테스트용",
+    modify : false,
   },
 ]);
 

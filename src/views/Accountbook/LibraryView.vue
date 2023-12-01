@@ -32,7 +32,7 @@ import CardList from '@/components/grid-list/CardList.vue';
 import SimpleCard from '@/components/grid-list/SimpleCardList.vue'
 
 import { ref } from 'vue';
-
+import type{ Tag } from "@/types";
 
 const tabs = ref([
     { name: '카테고리', href: 0, current: true },
@@ -82,36 +82,36 @@ const tabs = ref([
 ];
 
 /**************************** 테그 들어가는 내용 데이터 백에서 호출로 변경되어야함~! ********************************************************/
-const tags = ref([
+const tags = ref<Tag[]>([
   {
     name: "가족",
-    initials: "GA",
-    href: "#",
-    bgColor: "bg-pink-600",
+    modify : false,
+    share : false,
+    user : 'luke'
   },
   {
     name: "데이트",
-    initials: "CD",
-    href: "#",
-    bgColor: "bg-purple-600",
+    modify : false,
+    share : false,
+    user : 'luke'
   },
   {
     name: "선물",
-    initials: "T",
-    href: "#",
-    bgColor: "bg-yellow-500",
+    modify : false,
+    share : false,
+    user : 'luke'
   },
   {
     name: "회사",
-    initials: "RC",
-    href: "#",
-    bgColor: "bg-green-500",
+    modify : false,
+    share : false,
+    user : 'luke'
   },
   {
     name: "여행",
-    initials: "RC",
-    href: "#",
-    bgColor: "bg-green-500",
+    modify : false,
+    share : false,
+    user : 'luke'
   },
 ]);
 

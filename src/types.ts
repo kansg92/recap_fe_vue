@@ -8,6 +8,8 @@ export interface Asset {
     img : string
     user : string
     share : boolean
+    sharedAsset : Asset | null
+    modify : boolean
     payDate? : number
     cntn : string
 }
@@ -16,5 +18,6 @@ export interface Asset {
 export interface Tag{
     name : string,
     user : string,
-    share : boolean
+    share : boolean,
+    modify : boolean,
 }
