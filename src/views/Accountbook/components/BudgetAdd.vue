@@ -1,6 +1,6 @@
 <template>
   <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="relative z-[100]" >
+    <Dialog as="div" class="relative z-[100]">
       <div class="fixed inset-0 z-[100] w-screen overflow-y-auto">
         <TransitionChild
           as="template"
@@ -56,7 +56,7 @@
                     <div class="grid grid-cols-5 grid-rows-2 gap-y-2">
                       <p class="col-span-1 text-sm text-gray-500 font-semibold text-center">결제수단</p>
                       <select class="col-span-4 border">
-                        <option>계좌 카드에서 오지요</option>
+                        <option>자산목록에서</option>
                       </select>
                       <p class="col-span-1 text-sm text-gray-500 font-semibold text-center"></p>
                       <select class="col-span-4 border">
@@ -73,12 +73,8 @@
                     </div>
                     <div class="grid grid-cols-5 grid-rows-1 gap-y-2">
                       <p class="col-span-1 text-sm text-gray-500 font-semibold text-center mt-1">테그</p>
-                      <div class="col-span-4 text-sm text-gray-500 font-semibold text-left break-words ">
-                        <span class="border inline-block mr-2 mt-1">태그aaaaaaaaa1</span>
-                        <span class="border inline-block mr-2 mt-1">태그1</span>
-                        <span class="border inline-block mr-2 mt-1">태그1</span>
-                        <span class="border inline-block mr-2 mt-1">태그1</span>
-                        <span class="border inline-block mr-2 mt-1">태그1111111</span>
+                      <div class="col-span-4 text-sm text-gray-500 font-semibold text-left break-words">
+                        <span v-for="tag in tagList" :key="tag.id" class="border inline-block mr-2 mt-1 px-1 hover:bg-slate-100 hover:cursor-pointer">{{ tag.name }}</span>
                       </div>
                     </div>
                     <div class="grid grid-cols-5 grid-rows-1 gap-y-2">
@@ -92,7 +88,7 @@
                 <button
                   type="button"
                   class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  @click="$emit('update:open', false) /* 저장기능 만들어줘야행 */ "
+                  @click="$emit('update:open', false) /* 저장기능 만들어줘야행 */"
                 >
                   저장
                 </button>
@@ -119,8 +115,15 @@ import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 
 defineProps<{
-  open:boolean
-}>()
-
+  open: boolean;
+}>();
 const date = ref();
+
+const tagList = [
+  { id: 0, name: "가족" },
+  { id: 1, name: "데이트" },
+  { id: 2, name: "선물" },
+  { id: 3, name: "회사" },
+  { id: 4, name: "여행" },
+];
 </script>

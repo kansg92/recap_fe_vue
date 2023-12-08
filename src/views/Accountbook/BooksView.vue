@@ -4,6 +4,13 @@
       <span class="font-semibold">가계부 작성</span>
     </header>
     <main class="pl-4 mt-4 border h-screen">
+      <select class="p-2 mb-2">
+        <option>11월 2023</option>
+        <option>12월 2023</option>
+      </select>
+      <div class="pt-2 mb-2">
+        <TabsInPill v-model:tabs="tabs" />
+      </div>
       <table>
         <thead>
           <tr>
@@ -27,6 +34,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+import TabsInPill from "@/components/TabsInPill.vue";
 
 
+/** tabs  */
+const tabs = ref([
+  { name: "날짜별", href: 0, current: true },
+  { name: "카테고리별", href: 1, current: false },
+  { name: "자산별", href: 2, current: false },
+]);
 </script>
