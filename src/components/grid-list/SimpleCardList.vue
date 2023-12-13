@@ -2,13 +2,13 @@
   <div>
     <h2 class="text-sm font-medium text-gray-500">
       Pinned tags
-      <div class="absolute right-4 lg:top-[150px] mt-1 bottom-2">
+      <div class="absolute right-4 mt-1 bottom-2">
         <PlusCircleIcon class="w-10 h-10 text-green-600 hover:cursor-pointer" @click="addTags(tags)" />
       </div>
     </h2>
 
     <ul role="list" class="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-      <template v-for="tag in tags" :key="tag.name">
+      <template v-for="(tag, i) in tags" :key="i">
         <li class="col-span-1 flex rounded-lg border">
           <div class="flex flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium p-1 ml-3">
             <!-- {{ tag.initials }} -->
@@ -22,8 +22,8 @@
                 <a href="#" class="font-medium text-gray-900 hover:text-gray-600" v-if="!tag.modify">{{ tag.name }}</a>
                 <input v-if="tag.modify" class="border w-full mr-2" v-model="tag.name" />
                 <div>
-                  <button v-if="tag.modify" class="border px-1 mr-1 hover:bg-slate-100 text-sm">취소</button>
-                  <button v-if="tag.modify" class="border px-1 mr-1 hover:bg-slate-100 text-sm">저장</button>
+                  <button v-if="tag.modify" class="border px-1 mr-1 hover:bg-slate-100 text-sm" @click="deleteTags(tags, i)">취소</button>
+                  <button v-if="tag.modify" class="border px-1 mr-1 hover:bg-slate-100 text-sm" @click="tag.modify = false"> 저장</button>
                 </div>
               </div>
             </div>
@@ -44,7 +44,10 @@
                   >
                     <MenuItems class="absolute right-3 top-8 z-20 mt-0.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
                       <MenuItem v-slot="{ active }">
-                        <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-sm leading-6 text-gray-900']">Edit<span class="sr-only">, {{}}</span></a>
+                        <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-sm leading-6 text-gray-900']" @click="tag.modify = true">Edit<span class="sr-only">, {{}}</span></a>
+                      </MenuItem>
+                      <MenuItem v-slot="{ active }">
+                        <a href="#" :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-sm leading-6 text-gray-900']" @click="deleteTags(tags, i)">Delete<span class="sr-only">, {{}}</span></a>
                       </MenuItem>
                     </MenuItems>
                   </transition>
@@ -74,14 +77,18 @@ const proops = defineProps<{
 }>();
 
 const addTags = (tags: Tag[]) => {
-  proops.tags.push({
+  tags.push({
     name: "",
     modify: true,
     share: false,
     user: "luke",
   });
-  console.log(tags);
 };
+
+const deleteTags = (tags:Tag[], i:number) => {
+  tags.splice(i,1);
+}
+
 </script>
 
 <style scoped></style>
