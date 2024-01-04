@@ -29,7 +29,8 @@
                   <CheckIcon class="h-6 w-6 text-green-600" aria-hidden="true" />
                 </div> -->
                 <div class="mt-3 text-center sm:mt-5">
-                  <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">예산 내역 추가</DialogTitle>
+                  <div class="float-right">수집 지출 저축 투자</div>
+                  <DialogTitle as="h3" class="text-lg font-semibold leading-6 text-gray-900">예산 내역 추가</DialogTitle>
                   <div class="mt-2 flex flex-col justify-start gap-y-6">
                     <div class="grid grid-cols-5 grid-rows-2 gap-y-2">
                       <p class="col-span-1 text-sm text-gray-500 font-semibold text-center">카데고리</p>
